@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/datatable', function(){
 	return view('datatable');
 });
+
+Route::get('/bootstarp', function(){
+    return view('/bootstrapview');
+});
