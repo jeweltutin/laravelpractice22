@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>User Info</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,21 +19,37 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
-		<link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="{{asset("/assets/datatables.min.css")}}">
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+		<script src="{{asset("/assets/dataTables.min.js")}}"></script>
+
+
+
+
 		<script>
-			$(document).ready( function () {
+			/*$(document).ready( function () {
 				$('#myTable').DataTable();
-			} );
+			} );*/
+
+
+			$(function () {
+				$('#myTable').DataTable( {
+					dom: 'Bfrtip',
+					buttons: [
+						'copy', 'excel', 'pdf', 'print','csv'
+					]
+				} );
+			});
+
 		</script>
-		
+
     </head>
     <body class="antialiased" style="padding: 10px 60px;">
         <div class="relative items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
 			<h1>Records</h1>
             <div class="col-md-10">
-               <table id="myTable" class="display">
+               <table id="myTable">
 					<thead>
 						<tr>
 							<th>First name</th>
