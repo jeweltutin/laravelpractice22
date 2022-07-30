@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-<h4>Product List: </h4>
+<h4>Category List: </h4>
 <hr class="p-3">
 
 <div class="table-responsive">
@@ -8,26 +8,24 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Price</th>
+                <th scope="col">Category Name</th>
                 <th scope="col">Created</th>
             </tr>
         </thead>
         <tbody>
             <?php $n =1; ?>
-            @foreach ($products as $product)
+            @foreach ($categories as $category)
                 <tr>
                     <td>{{ $n }}</td>
-                    <td>{{ $product->name }}</td>
-                    <td>{{ $product->price }}</td>
-                    <td>{{ $product->created_at }}</td>
+                    <td>{{ $category->title }}</td>
+                    <td>{{ $category->created_at }}</td>
                     <td>
                         <td>
-                            <a href="{{ route('product.show', ['product' => $product->id]) }}" class="btn btn-show btn-success waves-effect">
+                            <a href="{{ route('category.show', ['category' => $category->id]) }}" class="btn btn-show btn-success waves-effect">
                                 <i class="material-icons">View</i>
                             </a>
 
-                           {{--<a href="{{ route('product.edit', ['product' => $product->id]) }}" class="btn btn-edit btn-primary waves-effect">
+                           {{--<a href="{{ route('category.edit', ['category' => $category->id]) }}" class="btn btn-edit btn-primary waves-effect">
                                 <i class="material-icons">Edit</i>
                             </a>--}}
 
@@ -36,12 +34,12 @@
 
                                 if(result){
                                     event.preventDefault();
-                                    document.getElementById('delete-form-{{$product->id}}').submit();
+                                    document.getElementById('delete-form-{{$category->id}}').submit();
                                 }">
                                 Delete
                             </a>
 
-                            <form method="POST" id="delete-form-{{$product->id}}" action="{{route('product.destroy',  $product->id)}}">
+                            <form method="POST" id="delete-form-{{$category->id}}" action="{{route('category.destroy',  $category->id)}}">
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
                             </form>
@@ -53,5 +51,20 @@
         </tbody>
     </table>
 </div>
+<h4>All Categories </h4>
+
+<hr class="p-3">
+
+{{--<ol class="list-group list-group-numbered">
+    @foreach ($categories as $category )
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Subheading</div>
+          <a href="{{ route('category.categorys.show', $category->id) }}"> {{ $category->title }} </a>
+        </div>
+        <span class="badge bg-primary rounded-pill">14</span>
+      </li>
+    @endforeach
+  </ol>--}}
 
 @endsection

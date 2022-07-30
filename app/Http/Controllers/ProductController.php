@@ -16,7 +16,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('product.index', compact('products'));
+        $categories = Category::all();
+        return view('product.index', compact('products','categories'));
     }
 
     /**
@@ -95,7 +96,6 @@ class ProductController extends Controller
         dd($id);
         $product = Product::find($id);
         $product->delete();
-
-
     }
+
 }
