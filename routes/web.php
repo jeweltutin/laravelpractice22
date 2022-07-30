@@ -24,3 +24,6 @@ Route::get('/datatable', function(){
 Route::get('/bootstarp', function(){
     return view('/bootstrapview');
 });
+Route::get('/bootstarp5', function(){
+    return view('/bootstrap5view');
+});
