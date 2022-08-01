@@ -9,13 +9,13 @@
             @csrf
             <div  class="mb-3">
                 <label for="" class="form-label">Category</label>
-                <select class="form-select" name="category_id" aria-label="Default select example">
+                <select class="form-select" name="selected_categories[]" aria-label="<select class="form-select" multiple aria-label="multiple select example">">
                     <option selected>Select Category</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->title }}</option>
                     @endforeach
                 </select>
-                <label for="productName" class="form-label">Product Name</label>
+                <label style="padding-top: 20px;" for="productName" class="form-label">Product Name</label>
                 <input type="text" name="name" class="form-control" id="productName" aria-describedby="productHelp">
                 <div id="productHelp" class="form-text">The product name is important for adding new product</div>
                 </div>

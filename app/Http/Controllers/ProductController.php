@@ -45,9 +45,11 @@ class ProductController extends Controller
 
         $product->save();
 
-        $catid = $request->category_id;
+        //$catid = $request->category_id;
         //$category = Category::find([1, 2]);
-        $product->categories()->attach($catid);
+        //$product->categories()->attach($catid);
+
+        $product->categories()->attach($request->selected_categories);
 
         return 'Success';
     }
