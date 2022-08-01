@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,7 @@ Route::get('/bootstarp5', function(){
 
 Route::get('product', [ProductController::class, 'index'])->name('product.index');
 Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
+Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
 Route::get('product/{product}', [ProductController::class, 'show'])->name('product.show');
 Route::delete('product/delete/{id}',[ProductController::class, 'destroy'])->name('product.destroy');
 
@@ -48,3 +50,5 @@ Route::get('category', [CategoryController::class, 'index'])->name('category.ind
 Route::get('category/{category}', [CategoryController::class, 'show'])->name('category.show');
 Route::delete('category/delete/{id}',[CategoryController::class, 'destroy'])->name('category.destroy');
 //Route::get('/category/{category_id}',[ProductController::class, 'showCategoryProducts'])->name('category.products.show');
+
+Route::get('shop', [ShopController::class, 'index'])->name('shop.index');

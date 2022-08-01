@@ -2,7 +2,10 @@
 @section('content')
 <h4>Product List: </h4>
 <hr class="p-3">
-
+<div class="col-md-12">
+    <a style="float: right; display:block;" class="btn btn-primary btn-md" href="{{ route('product.create') }}" role="button">Add Product</a>
+</div>
+<div class="row">
 <div class="table-responsive">
     <table class="table table-striped table-sm">
         <thead>
@@ -52,6 +55,7 @@
             @endforeach
         </tbody>
     </table>
+</div>
 </div>
 
 @endsection
