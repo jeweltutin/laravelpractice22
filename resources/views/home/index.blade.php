@@ -1,15 +1,14 @@
 @extends('layouts.default')
 @section('content')
-
-<h4>Category - Products</h4>
+<h4>Home</h4>
 <hr class="p-3">
 <div class="row">
     <div class="col-md-3">
         <ul class="list-group">
-            @foreach ($allcategories as $cat )
-            <li class="list-group-item"><a href="{{ route('category.show', ['category' => $cat->id]) }}">
-                {{ $cat->title }}
-            </a></li>
+            @foreach ($categories as $category)
+                <li class="list-group-item">
+                    <a href="{{ route('category.show', ['category' => $category->id]) }}">{{ $category->title }}</a>
+                </li>
             @endforeach
           </ul>
     </div>
@@ -26,7 +25,7 @@
                 </thead>
                 <tbody>
                     <?php $n =1; ?>
-                    @foreach($category->products as $product)
+                    @foreach ($products as $product)
                         <tr>
                             <td>{{ $n }}</td>
                             <td>{{ $product->name }}</td>
