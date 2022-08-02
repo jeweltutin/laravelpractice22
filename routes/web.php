@@ -54,3 +54,7 @@ Route::delete('category/delete/{id}',[CategoryController::class, 'destroy'])->na
 
 Route::get('shop', [ShopController::class, 'index'])->name('shop.index');
 Route::get('home', [HomeController::class, 'index'])->name('home.index');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
