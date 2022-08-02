@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Home;
+use App\Models\product;
+use App\Models\Category;
 
 use Illuminate\Http\Request;
 
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //return view('home');
+        $products = Product::all();
+        $categories = Category::all();
+        return view('home.index', compact('products','categories'));
     }
 }
