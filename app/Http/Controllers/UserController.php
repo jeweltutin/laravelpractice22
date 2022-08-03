@@ -73,13 +73,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::find(1);
+        return view('user.show', compact('user'));
+        /*$user = User::find(1);
         $userDob = $user->profile->dob;
         $userBio = $user->profile->bio;
 
-        return $userDob;
+        return $userDob;*/
     }
 
     /**
